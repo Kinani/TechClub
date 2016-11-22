@@ -1,0 +1,52 @@
+﻿<div id="parent">
+    <h3>Please begin your file name with your email then undersore + task name</h3>
+    <h4>Example: kinani95@outlook.com_task_gamdaa_gedan</h4>
+    <input type="file" id="FileUpload1" multiple/>
+    <input type="button" id="btnUpload" value="Upload Files" />
+    <h5>Click once, and wait! Shokran:)</h5>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function(){
+    $('#btnUpload').click(function () {
+
+        $('#parent').append('<div id="loading-image"><img src="http://i.stack.imgur.com/FhHRx.gif" alt="Loading..." /></div>');
+
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#FileUpload1").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            // Adding one more key to FormData object
+            fileData.append('username', 'Manas');
+
+            $.ajax({
+                url: '/Upload/UploadFiles',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+        $('#loading-image').remove();
+    });
+});
+</script>
