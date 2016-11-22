@@ -21,7 +21,10 @@ namespace TechClub
             routes.MapRoute("Upload",
                     "Upload",
                     new { controller = "Upload" });
-            
+            routes.MapRoute("Form",
+                    "Form",
+                    new { controller = "Form" });
+
         }
     }
 }

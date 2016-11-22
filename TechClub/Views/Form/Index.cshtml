@@ -1,0 +1,53 @@
+﻿@model TechClub.Models.Applicant
+@using (Html.BeginForm("Submit", "Form", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("First name")
+    <br />
+    @Html.TextBoxFor(m => m.FName, new { @required = "require", @style = "width:75%;", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.FName, null, new { @style = "color:red;" })
+    <br />
+    @Html.Label("Last name")
+    <br />
+    @Html.TextBoxFor(m => m.LName, new { @required = "require", @style = "width:75%;", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.LName, null, new { @style = "color:red;" })
+    <br />
+    @Html.Label("Thebes Academy ID")
+    <br />
+    @Html.TextBoxFor(m => m.ThebesId, new { @required = "require", @style = "width:75%;", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.ThebesId, null, new { @style = "color:red;" })
+    <br />
+    @Html.Label("Phone number")
+    <br />
+    @Html.TextBoxFor(m => m.Phone, new { @required = "require", @style = "width:75%;", @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Phone, null, new { @style = "color:red;" })
+    <br />
+    @Html.Label("Your email")
+    <br />
+    @Html.TextBoxFor(m => m.Email)
+    @Html.ValidationMessageFor(m => m.Email, null, new { @style = "color:red;" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.Level, "Select your level", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.Specialization, "Select your specialization", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.EnglishLevel, "Select your english Level", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.ChosenTeam, "Chose the team you are applying to", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.Laptop, "Do you have a laptop", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.EnumDropDownListFor(m => m.BasicCoding, "Do you have the minimum coding skills?", new { @class = "form-control", type = "text" })
+    <br />
+    @Html.Label("Anything else you want to tell us?")
+    <br />
+    @Html.TextBoxFor(m => m.GotSomethingElseToSay)
+    <br />
+    @Html.Label("Waht do you think of this application form?")
+    <br />
+    @Html.TextBoxFor(m => m.WhatDoYouThinkOfThisForm)
+    <br />
+
+    <input type="submit" name="Submit" value="Submit"/>
+
+}
+
