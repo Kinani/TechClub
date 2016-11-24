@@ -73,16 +73,16 @@ namespace TechClub.Controllers
 
         public void SendEmailToAdmin(string name)
         {
-            string downloadLink = "http://msptechclub.azurewebsites.net/Download.ashx?file=" + name;
+            string downloadLink = "http://msptechclub.azurewebsites.net/Download.ashx?file=Uploads/" + name;
             string smtpAddress = "smtp-mail.outlook.com"; // smtp for outlook
             int portNumber = 587;
             bool enableSSL = true;
 
             string emailFrom = "kinani95@outlook.com"; // write yours
-            string password = "youshallnotpass"; // write yours
+            string password = "youshallnotpass"; // obviously this wont work:), write yours
             string emailTo = "kinani95@outlook.com";
             string subject = "New upload";
-            string body = "Hello Big Brother, new file(s) have been submitted to you. **** Download link: " + name + " **** ";
+            string body = "Hello Big Brother, new file(s) have been submitted to you. **** Download link: " + downloadLink + " **** ";
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFrom);

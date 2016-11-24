@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="Download.ashx.cs" Class="TechClub.Common.Download" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="Download.ashx.cs" Class="TechClub.Download" %>
