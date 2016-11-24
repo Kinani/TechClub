@@ -10,7 +10,7 @@ namespace TechClub.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("~/form");
         }
 
         public ActionResult About()

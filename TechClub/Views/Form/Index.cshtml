@@ -26,19 +26,27 @@
     @Html.TextBoxFor(m => m.Email)
     @Html.ValidationMessageFor(m => m.Email, null, new { @style = "color:red;" })
     <br />
+    <br />
     @Html.EnumDropDownListFor(m => m.Level, "Select your level", new { @class = "form-control", type = "text" })
+    <br />
     <br />
     @Html.EnumDropDownListFor(m => m.Specialization, "Select your specialization", new { @class = "form-control", type = "text" })
     <br />
+    <br />
     @Html.EnumDropDownListFor(m => m.EnglishLevel, "Select your english Level", new { @class = "form-control", type = "text" })
+    <br />
     <br />
     @Html.EnumDropDownListFor(m => m.ChosenTeam, "Chose the team you are applying to", new { @class = "form-control", type = "text" })
     <br />
+    <br />
     @Html.EnumDropDownListFor(m => m.Laptop, "Do you have a laptop", new { @class = "form-control", type = "text" })
+    <br />
     <br />
     @Html.EnumDropDownListFor(m => m.BasicCoding, "Do you have the minimum coding skills?", new { @class = "form-control", type = "text" })
     <br />
+    <br />
     @Html.EnumDropDownListFor(m => m.AvailableOnDayX, "Are you available on fridays for at most 5 hours?", new { @class = "form-control", type = "text" })
+    <br />
     <br />
     @Html.Label("Anything else you want to tell us?")
     <br />
@@ -48,8 +56,7 @@
     <br />
     @Html.TextBoxFor(m => m.WhatDoYouThinkOfThisForm)
     <br />
-
+    <br />
     <input type="submit" name="Submit" value="Submit"/>
-
 }
 

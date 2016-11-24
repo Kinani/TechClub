@@ -36,7 +36,7 @@ namespace TechClub.Models
         public BasicCoding? BasicCoding { get; set; } // Bound to Developers
         [DisplayName("AvailableOnDayX")]
         [Required]
-        public DayAvail AvailableOnDayX { get; set; }
+        public DayAvail? AvailableOnDayX { get; set; }
         public string GotSomethingElseToSay { get; set; }
         public string WhatDoYouThinkOfThisForm { get; set; }
 

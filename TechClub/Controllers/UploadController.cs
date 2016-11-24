@@ -20,6 +20,7 @@ namespace TechClub.Controllers
         [HttpPost]
         public ActionResult UploadFiles()
         {
+            string[] fileNames;
             // Checking no of files injected in Request object  
             if (Request.Files.Count > 0)
             {
@@ -27,8 +28,10 @@ namespace TechClub.Controllers
                 {
                     //  Get all files from Request object  
                     HttpFileCollectionBase files = Request.Files;
+
+                    fileNames = new string[files.Count];
                     for (int i = 0; i < files.Count; i++)
-                    {   
+                    {
 
                         HttpPostedFileBase file = files[i];
                         string fname;
@@ -45,7 +48,7 @@ namespace TechClub.Controllers
                         }
 
                         // Get the complete folder path and store the file inside it.  
-                        
+
                         DirectoryInfo dir = new DirectoryInfo(HttpContext.Server.MapPath("~/Uploads/"));
                         if (!dir.Exists)
                         {
@@ -54,8 +57,16 @@ namespace TechClub.Controllers
 
                         fname = Path.Combine(Server.MapPath("~/Uploads/"), fname);
                         file.SaveAs(fname);
-                        SendEmailToAdmin(file.FileName); //TODO: This is blocking the view loading! 
+
+                        fileNames[i] = file.FileName;
+
+
+
                     }
+
+                    SendEmailToAdmin(fileNames); //TODO: This is blocking the view loading! 
+
+
                     // Returns message that successfully uploaded  
                     return Json("File Uploaded Successfully!");
                 }
@@ -71,18 +82,29 @@ namespace TechClub.Controllers
         }
 
 
-        public void SendEmailToAdmin(string name)
+        public void SendEmailToAdmin(string[] names)
         {
-            string downloadLink = "http://msptechclub.azurewebsites.net/Download.ashx?file=Uploads/" + name;
+            string downloadLinks = "";
             string smtpAddress = "smtp-mail.outlook.com"; // smtp for outlook
             int portNumber = 587;
             bool enableSSL = true;
-
+            for (int i = 0; i < names.Count(); i++)
+            {
+                downloadLinks += "File " + i + ": http://msptechclub.azurewebsites.net/Download.ashx?file=Uploads/" 
+                    + names[i] 
+                    + " " 
+                    + "<br>";
+            }
             string emailFrom = "kinani95@outlook.com"; // write yours
             string password = "youshallnotpass"; // obviously this wont work:), write yours
             string emailTo = "kinani95@outlook.com";
             string subject = "New upload";
-            string body = "Hello Big Brother, new file(s) have been submitted to you. **** Download link: " + downloadLink + " **** ";
+            string body = "Hello Big Brother, " + "<br>"
+                + "New file(s) have been submitted to you."
+                + "<br>"
+                + " Download link(s): " 
+                + "<br>"
+                + downloadLinks;
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFrom);
