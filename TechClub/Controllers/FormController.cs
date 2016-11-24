@@ -32,18 +32,20 @@ namespace TechClub.Controllers
                     
                     var noOfRow = currentSheet.Dimension.End.Row;
                     noOfRow++;
-                    currentSheet.Cells[noOfRow, 1].Value = model.FName;
-                    currentSheet.Cells[noOfRow, 2].Value = model.LName;
-                    currentSheet.Cells[noOfRow, 3].Value = model.ThebesId;
-                    currentSheet.Cells[noOfRow, 4].Value = model.Phone;
-                    currentSheet.Cells[noOfRow, 5].Value = model.Email;
-                    currentSheet.Cells[noOfRow, 6].Value = model.Level;
-                    currentSheet.Cells[noOfRow, 7].Value = model.Specialization;
-                    currentSheet.Cells[noOfRow, 8].Value = model.ChosenTeam;
-                    currentSheet.Cells[noOfRow, 9].Value = model.Laptop;
-                    currentSheet.Cells[noOfRow, 10].Value = model.BasicCoding;
-                    currentSheet.Cells[noOfRow, 11].Value = model.GotSomethingElseToSay;
-                    currentSheet.Cells[noOfRow, 12].Value = model.WhatDoYouThinkOfThisForm;
+                    currentSheet.Cells[noOfRow, 1].Value = model.Id;
+                    currentSheet.Cells[noOfRow, 2].Value = model.FName;
+                    currentSheet.Cells[noOfRow, 3].Value = model.LName;
+                    currentSheet.Cells[noOfRow, 4].Value = model.ThebesId;
+                    currentSheet.Cells[noOfRow, 5].Value = model.Phone;
+                    currentSheet.Cells[noOfRow, 6].Value = model.Email;
+                    currentSheet.Cells[noOfRow, 7].Value = model.Level;
+                    currentSheet.Cells[noOfRow, 8].Value = model.Specialization;
+                    currentSheet.Cells[noOfRow, 9].Value = model.ChosenTeam;
+                    currentSheet.Cells[noOfRow, 10].Value = model.Laptop;
+                    currentSheet.Cells[noOfRow, 11].Value = model.BasicCoding;
+                    currentSheet.Cells[noOfRow, 12].Value = model.AvailableOnDayX;
+                    currentSheet.Cells[noOfRow, 13].Value = model.GotSomethingElseToSay;
+                    currentSheet.Cells[noOfRow, 14].Value = model.WhatDoYouThinkOfThisForm;
                     package.Save();
                 }
             }

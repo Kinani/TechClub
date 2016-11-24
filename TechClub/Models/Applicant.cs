@@ -9,6 +9,8 @@ namespace TechClub.Models
 {
     public class Applicant
     {
+        [Key]
+        public int Id { get; set; }
         public string FName { get; set; }
         public string LName{ get; set; }
         public int ThebesId { get; set; }
@@ -32,6 +34,9 @@ namespace TechClub.Models
         [DisplayName("BasicCoding")]
         [Required]
         public BasicCoding? BasicCoding { get; set; } // Bound to Developers
+        [DisplayName("AvailableOnDayX")]
+        [Required]
+        public DayAvail AvailableOnDayX { get; set; }
         public string GotSomethingElseToSay { get; set; }
         public string WhatDoYouThinkOfThisForm { get; set; }
 
@@ -70,6 +75,11 @@ namespace TechClub.Models
         No
     }
     public enum Laptop
+    {
+        Yes,
+        No
+    }
+    public enum DayAvail
     {
         Yes,
         No

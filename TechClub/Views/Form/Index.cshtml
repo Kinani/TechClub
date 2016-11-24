@@ -38,6 +38,8 @@
     <br />
     @Html.EnumDropDownListFor(m => m.BasicCoding, "Do you have the minimum coding skills?", new { @class = "form-control", type = "text" })
     <br />
+    @Html.EnumDropDownListFor(m => m.AvailableOnDayX, "Are you available on fridays for at most 5 hours?", new { @class = "form-control", type = "text" })
+    <br />
     @Html.Label("Anything else you want to tell us?")
     <br />
     @Html.TextBoxFor(m => m.GotSomethingElseToSay)
