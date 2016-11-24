@@ -28,9 +28,7 @@ namespace TechClub.Controllers
                     //  Get all files from Request object  
                     HttpFileCollectionBase files = Request.Files;
                     for (int i = 0; i < files.Count; i++)
-                    {
-                        //string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";  
-                        //string filename = Path.GetFileName(Request.Files[i].FileName);  
+                    {   
 
                         HttpPostedFileBase file = files[i];
                         string fname;
@@ -53,9 +51,10 @@ namespace TechClub.Controllers
                         {
                             dir.Create();
                         }
+
                         fname = Path.Combine(Server.MapPath("~/Uploads/"), fname);
                         file.SaveAs(fname);
-                        SendEmailToKinani(fname);
+                        SendEmailToAdmin(file.FileName); //TODO: This is blocking the view loading! 
                     }
                     // Returns message that successfully uploaded  
                     return Json("File Uploaded Successfully!");
@@ -72,10 +71,9 @@ namespace TechClub.Controllers
         }
 
 
-        public void SendEmailToKinani(string path)
+        public void SendEmailToAdmin(string name)
         {
-            var ip = Request.UserHostAddress;
-
+            string downloadLink = "http://msptechclub.azurewebsites.net/Download.ashx?file=" + name;
             string smtpAddress = "smtp-mail.outlook.com"; // smtp for outlook
             int portNumber = 587;
             bool enableSSL = true;
@@ -84,7 +82,7 @@ namespace TechClub.Controllers
             string password = "youshallnotpass"; // write yours
             string emailTo = "kinani95@outlook.com";
             string subject = "New upload";
-            string body = "Hello loveeee, new file(s) have been submitted to you. **** File path: " + path + " **** ";
+            string body = "Hello Big Brother, new file(s) have been submitted to you. **** Download link: " + name + " **** ";
             using (MailMessage mail = new MailMessage())
             {
                 mail.From = new MailAddress(emailFrom);
