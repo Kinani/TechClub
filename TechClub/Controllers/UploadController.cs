@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using TechClub.Common;
 
 namespace TechClub.Controllers
 {
@@ -96,7 +97,7 @@ namespace TechClub.Controllers
                     + "<br>";
             }
             string emailFrom = "kinani95@outlook.com"; // write yours
-            string password = "youshallnotpass"; // obviously this wont work:), write yours
+            string password = Credentials.MyEmailPSWD;
             string emailTo = "kinani95@outlook.com";
             string subject = "New upload";
             string body = "Hello Big Brother, " + "<br>"
