@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/TechClub/Common/Credentials.cs
+/TechClub/Common/Credentials.cs
