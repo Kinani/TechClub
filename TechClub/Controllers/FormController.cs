@@ -17,7 +17,10 @@ namespace TechClub.Controllers
             return View();
         }
 
-        
+        public ActionResult ThankYou()
+        {
+            return View("ThankYou");
+        }
         [HttpPost]
         public ActionResult Submit(Applicant model)
         {
@@ -49,7 +52,7 @@ namespace TechClub.Controllers
                     package.Save();
                 }
             }
-            return View("Index");
+            return View("ThankYou");
         }
             
     }
