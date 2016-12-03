@@ -194,7 +194,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Documents\applicants.xlsx" />
     <Content Include="Download.ashx" />
     <None Include="Properties\PublishProfiles\MSPTechClub - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -230,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Documents\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
